@@ -31,7 +31,7 @@
 	}
 
 
-剛剛建立名稱為 ``Pages`` 的類別及一個成員函數 ``view``，並可接受一個 $page 參數。
+剛剛建立名稱為 ``Pages`` 的類別及一個成員函數 ``view``，並可接受一個 ``$page`` 參數。
 
 ``Pages`` 類別繼承了 ``CI_Controller`` 類別，表示它可以存取 ``CI_Controller`` (system/core/Controller.php)中定義的成員函數和變數。
 
