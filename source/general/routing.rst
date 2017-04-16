@@ -95,58 +95,48 @@ URL 第一段是 "product"，第二段是數字時，將轉向到 "catalog" 類�
 		return 'catalog/product_edit/' . strtolower($product_type) . '/' . $id;
 	};
 
-在路由中使用 HTTP 動詞
+在路由中使用 HTTP 動作 (GET、PUT、POST、DELETE、PATCH)
 ==========================
+可以在路由規則中使用 HTTP 動作(請求成員函數)，特別是建立 RESTful 應用程式時特別有用。
+使用標準的 HTTP 動作或自定義動作(例如： PURGE)，不區分大小寫。要做的是在路由陣列索引裡，將動作 名稱加進去。
 
-還可以在您的路由規則中使用 HTTP 動詞(請求成員函數)，當您在建立 RESTful 應用時特別有用。
-您可以使用標準的 HTTP 動詞(GET、PUT、POST、DELETE、PATCH)，也可以使用自定義的動詞
-(例如：PURGE)，不區分大小寫。您需要做的就是在路由陣列後面再加一個鍵，鍵名為 HTTP
-動詞。例如::
+例如::
 
 	$route['products']['put'] = 'product/insert';
 
 上例中，當發送 PUT 請求到 "products" 這個 URI 時，將會呼叫 ``Product::insert()`` 成員函數。
 
-::
+例如::
 
 	$route['products/(:num)']['DELETE'] = 'product/delete/$1';
 
-當發送 DELETE 請求到第一段為 "products" ，第二段為數字這個 URL時，將會呼叫
-``Product::delete()`` 成員函數，並將數字作為第一個參數。
-
-當然，使用 HTTP 動詞是可選的。
+當發送 DELETE 請求到第一段為 "products" ，第二段為數字這個 URL 時，將會呼叫 ``Product::delete()`` 成員函數，並將數字作為第一個參數。
 
 保留路由
 ===============
-
-有下面三個保留路由::
+下面有三個保留的路由::
 
 	$route['default_controller'] = 'welcome';
+	
+指定存取根 URL 時的預設控制器，表示 URI 裡沒有任何資料。	
+在上例中 ``welcome::index()`` 類別將被呼叫，如果未設定 ``index()`` 則為預設成員函數::
 
-This route points to the action that should be executed if the URI contains
-no data, which will be the case when people load your root URL.
-The setting accepts a **controller/method** value and ``index()`` would be
-the default method if you don't specify one. In the above example, it is
-``Welcome::index()`` that would be called.
+.. note:: 不能使用資料夾作為此設定值！
 
-.. note:: You can NOT use a directory as a part of this setting!
+建議設定一個控制器作為預設值，否則使用 404 錯誤頁面::
 
-You are encouraged to always have a default route as otherwise a 404 page
-will appear by default.
+$route['404_override'] = '';	
 
-::
-
-	$route['404_override'] = '';
-
-這個路由表示當用戶請求了一個不存在的頁面時該載入哪個控制器，它將會覆蓋預設的 404 錯誤頁面。Same per-directory rules as with 'default_controller' apply here as well. ``show_404()`` 函數不會受影響，它還是會繼續載入 *application/views/errors/* 目錄下的預設的 *error_404.php* 檔案。
-
-::
+取代預設的 404 錯誤頁面，由此設定覆寫的控制器，與 "default_controller" 相同的目錄規則也適用。
+不會影響到 ``show_404()`` 函數，依舊載入預設的 *application/views/errors/error_404.php* 檔案::
 
 	$route['translate_uri_dashes'] = FALSE;
+	
+由布林值就知道並不是路由，此選項能夠自動將 URL 控制器和成員函數中的連接字元 ('-') 取代成下劃線 ('_')。
+可以讓您少寫很多路由規則，由於連接字元 ('-') 不是有效的類別或成員函式名稱，如果不使用這個設定將導致致命錯誤。
 
-從它的布林值就能看出來這其實並不是一個路由，這個選項可以自動的將 URL
-中的控制器和成員函數中的連字元('-')轉換為下劃線('_')，當您需要這樣時，
-它可以讓您少寫很多路由規則。由於連字元不是一個有效的類別名或成員函數名，
-如果您不使用它的話，將會引起一個嚴重錯誤。
+.. important:: 任何萬用字元或正規表達式路由，保留的路由一定要留著。
+              
 
-.. important:: 保留的路由規則必須位於任何一般的萬用字元或正則路由的前面。
+
+
