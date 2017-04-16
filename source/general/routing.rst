@@ -36,80 +36,62 @@ URI 路由規則
 **(:any)** 比對除了 '/' 字元的任意字元段。(因為 '/' 是段與段之間的分隔字元)
 
 .. note:: 萬用字元實際上是正則表達式的別名，**:any** 會被轉換為 **[^/]+** 而 **:num** 會被轉換為 **[0-9]+**。
-
 .. note:: 路由規則將按照被定義的順序執行，前面的規則優先於後面的規則。
-
-.. note:: 路由規則不是篩選器！設定規則像是 e.g.	'foo/bar/(:num)' 如果是有效的路徑，不會阻止控制器 *Foo* 及成員函數 *bar* 被非數字的參數呼叫。
+.. note:: 路由規則不是篩選器！設定規則例如： 'foo/bar/(:num)' 如果是有效的路徑，不會阻止控制器 *Foo* 及成員函數 *bar* 被非數字的參數呼叫。
 
 範例
 ========
-
 這裡是一些路由的範例::
 
 	$route['journals'] = 'blogs';
 
-URL 的第一段是單詞 "journals" 時，將轉向到 "blogs" 類別。
-
-::
+URL 第一段是使用純文字 "journals" 時，將轉向到 "blogs" 類別::
 
 	$route['blog/joe'] = 'blogs/users/34';
 
-URL 包含 blog/joe 的話，將轉向到 "blogs" 類別和 "users" 成員函數。ID 參數設為 "34" 。
-
-::
+URL 包含 blog/joe 的話，將轉向到 "blogs" 類別和 "users" 成員函數。ID 參數設為 "34"::
 
 	$route['product/(:any)'] = 'catalog/product_lookup';
 
-URL 的第一段是 "product" ，第二段是任意字元時，將轉向到 "catalog" 類別的
-"product_lookup" 成員函數。
-
-::
+URL 第一段是 "product"，第二段是任意字元時，將轉向到 "catalog" 類別的 "product_lookup" 成員函數::
 
 	$route['product/(:num)'] = 'catalog/product_lookup_by_id/$1';
 
-URL 的第一段是 "product" ，第二段是數字時，將轉向到 "catalog" 類別的
-"product_lookup_by_id" 成員函數，並將第二段的數字作為參數傳遞給它。
+URL 第一段是 "product"，第二段是數字時，將轉向到 "catalog" 類別的 "product_lookup_by_id" 成員函數，並將第二段的數字作為參數傳遞給它。
 
 .. important:: 不要在前面或後面加反斜線('/')。
 
 正則表達式
 ===================
+如果您偏好使用正規表達式來定義路由規則，任何合法的正規式都允許使用，包括向後引用(back-reference)。
 
-如果您喜歡，您可以在路由規則中使用正則表達式。任何有效的正則表達式都是
-允許的，包括逆向引用。
+.. note:: 如果使用向後引用(back-reference)，必須使用美元符號取代雙斜線語法。
 
-.. note:: 如果您使用逆向引用，您需要使用美元符號代替雙斜線語法。
-
-一個典型的使用正則表達式的路由規則看起來像下面這樣::
+一個典型的正則表達式的路由規則如下::
 
 	$route['products/([a-z]+)/(\d+)'] = '$1/id_$2';
 
-上例中，一個類別似於 products/shirts/123 這樣的 URL 將會轉向到 "shirts"
-控制器的 "id_123" 成員函數。
+上例中類似 products/shirts/123 的 URL 會轉向到 "shirts" 控制器中 "id_123" 的成員函數。
+使用正則表達式，可以一次分隔多個區段的內容。
+例如： 使用者想存取 Web 應用程式受密碼保護的頁面時，只有登入成功後，才轉向目標頁面否則回到登入頁面。
 
-With regular expressions, you can also catch multiple segments at once.
-
-例如，當一個用戶存取您的 Web 應用中的某個受密碼保護的頁面時，如果他沒有
-登陸，會先跳轉到登陸頁面，您希望在他們在成功登陸後轉向回剛才那個頁面，
-那麼這個範例會很有用::
+可以參考以下範例::
 
 	$route['login/(.+)'] = 'auth/login/$1';
 
-.. note:: In the above example, if the ``$1`` placeholder contains a
-	slash, it will still be split into multiple parameters when
-	passed to ``Auth::login()``.
+.. note:: 上例中，如果 ``$1`` 預留位置包含斜線，那麼當傳遞給 ``Auth::login()`` 時，仍然會被分割成多個參數。
+	
+如果您還不是很瞭解正規表達式，更多的正規表達式，請參閱 regular-expressions.info <http://www.regular-expressions.info/> 網站開始學習。
 
-如果您還不知道正則表達式，可以存取 `regular-expressions.info <http://www.regular-expressions.info/>`_ 開始學習一下。
-
-.. note:: 您也可以在您的路由規則中混用萬用字元和正則表達式。
+.. note:: 可以在您的路由規則中混用萬用字元和正則表達式。
 
 回調函數
 =========
+在路由規則中使用回調函數來處理向後引用(back-reference)。
 
-您可以在路由規則中使用回調函數來處理逆向引用。例如::
+例如::
 
-	$route['products/([a-zA-Z]+)/edit/(\d+)'] = function ($product_type, $id)
-	{
+	$route['products/([a-zA-Z]+)/edit/(\d+)'] = function ($product_type, $id) {
 		return 'catalog/product_edit/' . strtolower($product_type) . '/' . $id;
 	};
 
