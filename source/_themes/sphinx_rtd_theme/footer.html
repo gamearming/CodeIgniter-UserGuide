@@ -1,0 +1,65 @@
+<footer>
+  {% if next or prev %}
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      {% if next %}
+        <a href="{{ next.link|e }}" class="btn btn-neutral float-right" title="{{ next.title|striptags|e }}">下一个主题 <span class="fa fa-arrow-circle-right"></span></a>
+      {% endif %}
+      {% if prev %}
+        <a href="{{ prev.link|e }}" class="btn btn-neutral" title="{{ prev.title|striptags|e }}"><span class="fa fa-arrow-circle-left"></span> 上一个主题</a>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% if pagename != 'search' %}
+  <div id="notes">
+    <div id="cyReward" class="reward" role="cylabs" data-use="reward" sid="userguide3/{{ pagename|e }}"></div>
+  {% if pagename != 'general/welcome' and pagename != 'index' and pagename != 'DCO' and pagename != 'license' %}
+    <!-- 评论框 start -->
+    <div id="SOHUCS" sid="userguide3/{{ pagename|e }}"></div>
+    <script>
+    (function(){
+    var appid = 'cysUhlHaQ';
+    var conf = 'prod_13204b098623005ce9934964677924bd';
+    var width = window.innerWidth || document.documentElement.clientWidth;
+    if (width < 960) {
+    window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })();
+    </script>
+    <!-- 评论框 end -->
+  {% endif %}
+    <script src="https://changyan.itc.cn/js/lib/jquery.js"></script>
+    <script src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cysUhlHaQ"></script>
+  </div>
+  {% endif %}
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    {%- if show_copyright %}
+      {%- if hasdoc('copyright') %}
+        {% trans path=pathto('copyright'), copyright=copyright|e %}&copy; <a href="{{ path }}">版权所有</a> {{ copyright }}.{% endtrans %}
+      {%- else %}
+        {% trans copyright=copyright|e %}&copy; 版权所有 {{ copyright }}.{% endtrans %}
+      {%- endif %}
+    {%- endif %}
+
+    {%- if last_updated %}
+      {% trans last_updated=last_updated|e %} 最后修改: {{ last_updated }}.{% endtrans %}
+    {%- endif %}
+    </p>
+
+    <p>以 <a href="http://www.aneasystone.com/" target="_blank">aneasystone</a> 制作的手册为基础构建</p>
+  </div>
+
+  {% trans %}
+    <p>基于 <a href="http://sphinx-doc.org/">Sphinx</a> 并使用 <a href="https://readthedocs.org">Read the Docs</a> 提供的<a href="https://github.com/snide/sphinx_rtd_theme">风格</a>构建</p>
+    <p>
+        <a href="https://github.com/CodeIgniter-Chinese/codeigniter-user-guide" target="_blank">Github 简体中文翻译</a>
+        ·
+        <a href="http://codeigniter-chinese.github.io/codeigniter-user-guide/codeigniter_user_guide.zip">离线版压缩包下载</a>
+        ·
+        <a href="http://codeigniter-chinese.github.io/codeigniter-user-guide/CodeIgniter.pdf">PDF 版下载</a>
+    </p>
+  {% endtrans %}
+
+</footer>
