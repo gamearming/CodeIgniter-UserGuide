@@ -2,51 +2,51 @@
 靜態頁面
 ############
 
-**Note:** 這篇教程假設您已經下載好 CodeIgniter ，並將其 :doc:`安裝 <../installation/index>`
-到您的開發環境。
+中文名詞解譯：
+**控制器**         = Controller
+**整合轉譯介面**   = glue
+**網址**           = URL
 
-您要做的第一件事情是新建一個 **控制器** 來處理靜態頁面，控制器就是一個簡單的類，
-用來完成您的工作，它是您整個 Web 應用程式的 「粘合劑」 。
+.. note::
 
-例如，當存取下面這個 URL 時:
+本篇教學是假設您已經下載並 :doc:`安裝 <../installation/index>` CodeIgniter 到您的開發環境中。
+
+那麼第一件要做的就是新增一個 **控制器** 來處理靜態頁面。
+**控制器** 是一個簡單的類別，用來幫助委派工作，它是整個 Web 應用程式的 **整合轉譯介面**。
+
+例如： 當瀏覽器發出一個網址請求時::
 
 	http://example.com/news/latest/10
 
-通過這個 URL 我們就可以推測出來，有一個叫做 "news" 的控制器，被呼叫的成員函數為 "latest" ，
-這個成員函數的作用應該是查詢 10 條新聞項目並顯示在頁面上。在 MVC 模式裡，您會經常看到下面
-格式的 URL ：
+.. 網址:: URL
+通過這個網址我們可以推測出 **控制器** 的名稱是 "news" 而此 **控制器** 將被呼叫的成員函數為 "latest"。
+而這個成員函數的作用應該是查詢 10 條新聞記錄並顯示到頁面上，在 MVC 架構您經常會看到以下網址::
 
 	http://example.com/[controller-class]/[controller-method]/[arguments]
 
-在正式環境下 URL 的格式可能會更複雜，但是現在，我們只需要關心這些就夠了。
+在正式環境下網址的格式可能會更複雜，但目前我們只需要關心這些就夠了。
 
-新建一個文件 *application/controllers/Pages.php* ，然後加入如下程式碼。
-
-::
+新增 *application/controllers/Pages.php* 檔案並加入如下程式碼::
 
 	<?php
 	class Pages extends CI_Controller {
-
-		public function view($page = 'home')
-		{
-	    }
+		public function view($page = 'home') {
+		 // TODO 
+	  }
 	}
 
-您剛剛建立了一個 ``Pages`` 類，有一個成員函數 view 並可接受一個 $page 參數。
-``Pages`` 類繼承自 ``CI_Controller`` 類，這意味著它可以存取 ``CI_Controller``
-類（ *system/core/Controller.php* ）中定義的成員函數和變數。
 
-控制器將會成為您的 Web 應用程式中的處理請求的核心，在關於 CodeIgniter
-的技術討論中，這有時候被稱作 **超級物件** 。和其他的 PHP 類一樣，可以在
-您的控制器中使用 ``$this`` 來存取它，通過 ``$this`` 您就可以載入類庫、
-檢視、以及針對框架的一般性操作。
+剛剛建立名稱為 ``Pages`` 的類別及一個成員函數 ``view``，並可接受一個 $page 參數。
 
-現在，您已經建立了您的第一個成員函數，是時候建立一些基本的頁面模板了，我們將
-新建兩個檢視（頁面模板）分別作為我們的頁腳和頁頭。
+``Pages`` 類別繼承了 ``CI_Controller`` 類別，表示它可以存取 ``CI_Controller`` (system/core/Controller.php)中定義的成員函數和變數。
 
-新建頁頭文件 *application/views/templates/header.php* 並加入以下程式碼：
+此 **控制器** 將會成為整個 Web 應用程式處理請求的核心，這時被稱作 **超級物件** 。 
+就像所有的 php 類別一樣，可以在這個 **控制器** 中使用``$this`` 來存取類別庫、檢視、以及針對框架的一般性操作。
 
-::
+
+現在您已經建立了第一個成員函數，再來就是建立基本頁面的模板了。
+
+我們將建立 ``頁首模板`` 檔案 *application/views/templates/header.php* 並加入以下的程式碼:: 
 
 	<html>
 		<head>
@@ -56,33 +56,26 @@
 
 			<h1><?php echo $title; ?></h1>
 
-頁頭包含了一些基本的 HTML 程式碼，用於顯示頁面的主檢視之前的內容。
-另外，它還打印出了 ``$title`` 變數，這個我們後面講控制器的時候再講。
-現在，再新建個頁腳文件 *application/views/templates/footer.php* ，然後加入以下程式碼：
+*header.php* 主要是用於顯示主頁面之前的 HTML 基本程式碼，包括 head、title 等內容，也顯示了 ``$title`` 變數，將在後面說明 **控制器** 的時候再來定義。
 
-::
+再來建立 ``頁尾模板`` 檔案 *application/views/templates/footer.php* ，然後加入以下程式碼::
 
 			<em>&copy; 2015</em>
 		</body>
 	</html>
+	
+這樣就完成兩個 ``view``（頁面模板）作為我們的頁首和頁尾。
 
-在控制器中加入邏輯
+在 **控制器** 中加入邏輯
 ------------------------------
 
-您剛剛新建了一個控制器，裡面有一個 ``view()`` 成員函數，這個成員函數接受一個參數
-用於指定要載入的頁面，靜態頁面模板位於 *application/views/pages/* 目錄。
+在剛才新增的 **控制器** 中，有個 ``view()`` 的成員函數包括一個要載入指定頁面的參數。
 
-在該目錄中，再新建兩個文件 *home.php* 和 *about.php* ，在每個文件裡隨便
-寫點東西然後儲存它們。如果您沒什麼好寫的，就寫 "Hello World!" 吧。
+靜態頁面模板位於 *application/views/pages/* 資料夾，在此資料夾中我們分別建立 *home.php* 和 *about.php* 二個檔案。
+在各別文件中隨意寫入一些資料，如果不知要寫什麼就寫 "Hello World!" 吧，這是為了測試存取頁面時，檢查頁面是否存在::
 
-為了載入這些頁面，您需要先檢查下請求的頁面是否存在：
-
-::
-
-	public function view($page = 'home')
-	{
-	  if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
-		{
+	public function view($page = 'home') {
+	  if( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))	{
 			// Whoops, we don't have a page for that!
 			show_404();
 		}
@@ -94,48 +87,44 @@
 		$this->load->view('templates/footer', $data);
 	}
 
-當請求的頁面存在，將包括頁面和頁腳一起被載入並顯示給用戶，如果不存在，
-會顯示一個 "404 Page not found" 錯誤。
+.. 頁面找不到:: 404 Page not found
 
-第一行檢查頁面是否存在，``file_exists()`` 是個原生的 PHP 函數，用於檢查某個
-文件是否存在，``show_404()`` 是個 CodeIgniter 內置的函數，用來顯示一個預設的
-錯誤頁面。
+當存取的頁面存在，則會將頁首和頁尾一起顯示給用戶，如果不存在則會顯示 "404 找不到頁面" 的錯誤。
 
-在頁頭文件中，``$title`` 變數用來自定義頁面的標題，它是在這個成員函數中賦值的，
-但是注意的是並不是直接賦值給 title 變數，而是賦值給一個 ``$data`` 陣列的
-title 元素。
+上面程式碼第一行是檢查頁面是否存在 ``file_exists()`` 是 PHP 的原生函數，用於檢查某個文件是否存在，
+``show_404()`` 是 CodeIgniter 內建函數，用來顯示預設的錯誤頁面。
 
-最後要做的是按順序載入所需的檢視，``view()`` 成員函數的第二個參數用於向檢視傳遞參數，
-``$data`` 陣列中的每一項將被賦值給一個變數，這個變數的名字就是陣列的鍵值。
-所以控制器中 ``$data['title']`` 的值，就等於檢視中的 ``$title`` 的值。
+在頁首文件中 ``$title`` 變數用來自定義頁面的標題，我們在這個成員函數中賦值，但是要 **注意** 並不是
+直接賦值給 title 變數，而是賦值給 ``$data`` 陣列的 title 元素。
 
-路由
+
+最後要做的是按照順序來讀取檢視， ``view()`` 成員函數中的第二個參數是用於向檢視傳遞參數。
+``$data`` 陣列中的 **索引鍵值** 就是相應的 **變數名稱**，所以在 **控制器** 中 $data['title'] 的值等
+同於檢視中的 $title 值。
+
+路由 (Routing)
 -------
 
-控制器現在開始工作了！在您的瀏覽器中輸入 ``[your-site-url]index.php/pages/view``
-來查看您的頁面。當您存取 ``index.php/pages/view/about`` 時您將看到 about 頁面，
-包括頁頭和頁腳。
+控制器現在開始工作了！在瀏覽器中輸入 ``[您的網址]index.php/pages/view``，  
+本機測試可輸入 ``http://localhost/index.php/pages/view`` 來存取您的頁面。
+當您存取 ``index.php/pages/view/about`` 時您將看到 about 頁面，包括頁首和頁尾。
 
-使用自定義的路由規則，您可以將任意的 URI 映射到任意的控制器和成員函數上，從而打破
-預設的規則：
+使用自定義的路由規則，您可以將任意的 URI 對應到任意的 **控制器** 與成員函數，
+進而擺脫了傳統網址預設的規則 ``http://example.com/[controller-class]/[controller-method]/[arguments]``
 
-``http://example.com/[controller-class]/[controller-method]/[arguments]``
-
-讓我們來試試。打開文件 *application/config/routes.php* 然後加入如下兩行程式碼，
-並刪除掉其他對 ``$route`` 陣列賦值的程式碼。
-
-::
+讓我們來試試開啟 *application/config/routes.php* 檔案，然後加入如下兩行程式碼，
+並刪除掉其他對 ``$route`` 陣列賦值的程式碼::
 
 	$route['default_controller'] = 'pages/view';
 	$route['(:any)'] = 'pages/view/$1';
 
-CodeIgniter 從上到下讀取路由規則並將請求映射到第一個匹配的規則，每一個規則都是
-一個正則表達式（左側）映射到 一個控制器和成員函數（右側）。當有請求到來時，CodeIgniter
-首先查找能匹配的第一條規則，然後呼叫相應的控制器和成員函數，可能還帶有參數。
+CodeIgniter 從上到下讀取路由規則，並將請求對應到第一個符合的規則，每規則都是以正則表達式(左側)對應到反斜線分隔的 **控制器** 和成員函數(右側)。
 
-您可以在關於 :doc:`URI 路由的文件 <../general/routing>` 中找到更多資訊。
+當有請求到來時，CodeIgniter 首先查詢第一個符合的規則，然後呼叫相應的 **控制器** 和成員函數，可能還包含了參數。
 
-這裡，第二條規則中 ``$routes`` 陣列使用了通配符 ``(:any)`` 可以匹配所有的請求，
-然後將參數傳遞給 ``Pages`` 類的 ``view()`` 成員函數。
+關於路由的更多資訊，請參閱： :doc:`URI 路由 <../general/routing>` 一節。
 
-現在存取 ``index.php/about`` 。路由規則是不是正確的將您帶到了控制器中的 ``view()`` 成員函數？實在是太棒了！
+這裡第二條規則中 ``$routes`` 陣列使用了萬用字元 ``(:any)`` 可以符合所有的請求，然後將參數傳遞給 ``Pages`` 類別的 ``view()`` 成員函數。
+
+現在存取 ``index.php/about`` ，路由規則是不是正確的將您帶到了 **控制器** 中 ``view()`` 的成員函數呢？實在是太棒了！
+
