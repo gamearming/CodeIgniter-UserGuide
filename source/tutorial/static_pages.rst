@@ -2,9 +2,7 @@
 靜態頁面
 ############
 
-.. note::
-
-本篇教學是假設您已經下載並 :doc:`安裝 <../installation/index>` CodeIgniter 到您的開發環境中。
+.. note:: 本篇教學是假設您已經下載並 :doc:`安裝 <../installation/index>` CodeIgniter 到您的開發環境中。
 
 那麼第一件要做的就是新增一個 **控制器** 來處理靜態頁面。
 
