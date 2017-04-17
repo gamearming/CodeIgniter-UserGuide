@@ -85,7 +85,7 @@ script 標籤中，您可以設定 autoload 參數為 FALSE 。這在當您在 C
 	$config['javascript_location'] = 'http://localhost/codeigniter/themes/js/jquery/';
 	$config['javascript_ajax_img'] = 'images/ajax-loader.gif';
 
-如果您把文件留在與圖片下載路徑相同的目錄裡，那麼您不需要設定這個設定項。
+如果您把文件留在與圖片下載路徑相同的資料夾裡，那麼您不需要設定這個設定項。
 
 jQuery 類
 ================

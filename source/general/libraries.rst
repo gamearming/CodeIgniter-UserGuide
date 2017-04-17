@@ -2,7 +2,7 @@
 使用 CodeIgniter 類庫
 ###########################
 
-所有的系統類庫都位於 *system/libraries/* 目錄下，大多數情況下，在使用之前，
+所有的系統類庫都位於 *system/libraries/* 資料夾下，大多數情況下，在使用之前，
 您要先在 :doc:`控制器 <controllers>` 中初始化它，使用下面的成員函數::
 
 	$this->load->library('class_name');

@@ -49,7 +49,7 @@ CodeIgniter 提供了一個全面的表單驗證和資料預處理類可以幫�
 ========
 
 使用文字編輯器建立一個名為 myform.php 的文件，在它裡面插入如下程式碼，
-並把它儲存到您的 applications/views/ 目錄下::
+並把它儲存到您的 applications/views/ 資料夾下::
 
 	<html>
 	<head>
@@ -84,7 +84,7 @@ CodeIgniter 提供了一個全面的表單驗證和資料預處理類可以幫�
 ================
 
 使用文字編輯器建立一個名為 formsuccess.php 的文件，在它裡面插入如下程式碼，
-並把它儲存到您的 applications/views/ 目錄下::
+並把它儲存到您的 applications/views/ 資料夾下::
 
 	<html>
 	<head>
@@ -103,7 +103,7 @@ CodeIgniter 提供了一個全面的表單驗證和資料預處理類可以幫�
 ==============
 
 使用文字編輯器建立一個名為 Form.php 的控制器文件，在它裡面插入如下程式碼，
-並把它儲存到您的 application/controllers/ 目錄下::
+並把它儲存到您的 application/controllers/ 資料夾下::
 
 	<?php
 
@@ -641,7 +641,7 @@ another array of your choice.
 如何儲存您的規則
 ======================
 
-如果要儲存驗證規則，您需要在 application/config/ 目錄下建立一個名為 form_validation.php 的文件。
+如果要儲存驗證規則，您需要在 application/config/ 資料夾下建立一個名為 form_validation.php 的文件。
 然後在該文件中，將驗證規則儲存在陣列 $config 中即可。和之前介紹的一樣，驗證規則陣列格式如下::
 
 	$config = array(

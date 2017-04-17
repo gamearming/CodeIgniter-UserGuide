@@ -41,7 +41,7 @@ URI 分段
   RewriteRule ^(.*)$ index.php/$1 [L]
 
 
-在上面的範例中，除已存在的目錄和文件，其他的 HTTP 請求都會經過您的 index.php 文件。
+在上面的範例中，除已存在的資料夾和文件，其他的 HTTP 請求都會經過您的 index.php 文件。
 
 .. note:: 這些規則並不是對所有 Web 伺服器都有效。
 

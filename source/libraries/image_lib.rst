@@ -54,11 +54,11 @@ CodeIgniter 的圖像處理類可以使您完成以下的操作：
 
 	$this->image_lib->resize();
 
-以上程式碼告訴 image_resize 函數去查找位於 source_image 目錄下的名為 mypic.jpg
+以上程式碼告訴 image_resize 函數去查找位於 source_image 資料夾下的名為 mypic.jpg
 的圖片，然後運用 GD2 圖像庫建立一個 75 X 50 像素的縮略圖。 當 maintain_ratio
 選項設為 TRUE 時，產生的縮略圖將保持圖像的縱橫比例，同時盡可能的在寬度和
 高度上接近所設定的 width 和 height 。
-縮略圖將被命名為類似 *mypic_thumb.jpg* 的形式，並儲存在 *source_image* 的同級目錄中。
+縮略圖將被命名為類似 *mypic_thumb.jpg* 的形式，並儲存在 *source_image* 的同級資料夾中。
 
 .. note:: 為了讓圖像類能進行所有操作，包含圖片的文件夾必須開啟可寫權限。
 

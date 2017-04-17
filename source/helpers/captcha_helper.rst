@@ -53,7 +53,7 @@
 -  如果沒有提供 **word** 參數，該函數將產生一個隨機的 ASCII 字元串。
    您也可以使用自己的詞庫，從裡面隨機挑選。
 -  如果您不設定 TRUE TYPE 字體（譯者註：是主要的三種計算機矢量字體之一）的路徑，將使用 GD 預設的字體。
--  "captcha" 目錄必須是可寫的。
+-  "captcha" 資料夾必須是可寫的。
 -  **expiration** 參數表示驗證碼圖片在刪除之前將保留多久（單位為秒），預設保留 2 小時。
 -  **word_length** 預設值為 8， **pool** 預設值為 '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 -  **font_size** 預設值為 16，GD 庫的字體對大小有限制，如果字體大小需要更大一點的話可以設定一種 TRUE TYPE 字體。

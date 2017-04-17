@@ -5,7 +5,7 @@
 除了從瀏覽器中通過 URL 來呼叫程序的 :doc:`控制器 <./controllers>` 之外，
 您也可以通過 CLI （命令列界面）的方式來呼叫。
 
-.. contents:: 目錄
+.. contents:: 資料夾
 
 什麼是 CLI ？
 ================
@@ -38,13 +38,13 @@ Tools.php，然後輸入如下的程式碼::
 		}
 	}
 
-然後將文件儲存到 *application/controllers/* 目錄下。
+然後將文件儲存到 *application/controllers/* 資料夾下。
 
 現在您可以通過類似下面的 URL 來存取它::
 
 	example.com/index.php/tools/message/to
 
-或者，我們可以通過 CLI 來存取。在 Mac/Linux 下您可以打開一個終端，在 Windows 下您可以打開 「執行」，然後輸入 "cmd"，進入 CodeIgniter 項目所在的目錄。
+或者，我們可以通過 CLI 來存取。在 Mac/Linux 下您可以打開一個終端，在 Windows 下您可以打開 「執行」，然後輸入 "cmd"，進入 CodeIgniter 項目所在的資料夾。
 
 .. code-block:: bash
 

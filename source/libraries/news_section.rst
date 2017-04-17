@@ -12,7 +12,7 @@
 資料庫的查詢操作應該放在模型裡，而不是寫在控制器裡，這樣可以很方便的重用它。
 模型正是用於從資料庫或者其他儲存中讀取、新增、更新資料的地方。它就代表您的資料。
 
-打開 *application/models/* 目錄，新建一個文件 *News_model.php* ，然後寫入下面的程式碼。
+打開 *application/models/* 資料夾，新建一個文件 *News_model.php* ，然後寫入下面的程式碼。
 確保您的 :doc:`資料庫設定 <../database/configuration>` 正確。
 
 ::
@@ -188,4 +188,4 @@
 	$route['(:any)'] = 'pages/view/$1';
 	$route['default_controller'] = 'pages/view';
 
-把瀏覽器的地址改回根目錄，在後面加上 index.php/news 來看看您的新聞頁面吧。
+把瀏覽器的地址改回根資料夾，在後面加上 index.php/news 來看看您的新聞頁面吧。

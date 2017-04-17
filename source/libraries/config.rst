@@ -25,7 +25,7 @@ CodeIgniter 預設有一個主要的設定文件，位於 application/config/con
 如果您使用文字編輯器打開它的話，您會看到設定項都儲存在一個叫做 $config 的陣列中。
 
 您可以往這個文件中加入您自己的設定項，或者您喜歡將您的設定項和系統的分開的話，
-您也可以建立您自己的設定文件並儲存到設定目錄下。
+您也可以建立您自己的設定文件並儲存到設定資料夾下。
 
 .. note:: 如果您要建立您自己的設定文件，使用和主設定文件相同的格式，將設定項儲存到名為 $config 的陣列中。
 	CodeIgniter 會智能的管理這些文件，所以就算陣列名都一樣也不會衝突（假設陣列的索引沒有相同的）。
@@ -65,7 +65,7 @@ CodeIgniter 預設有一個主要的設定文件，位於 application/config/con
 ************
 
 如果您發現有一個設定文件您需要在全區範圍內使用，您可以讓系統自動載入它。
-要實現這點，打開位於 application/config/ 目錄下的 **autoload.php** 文件，
+要實現這點，打開位於 application/config/ 資料夾下的 **autoload.php** 文件，
 將您的設定文件加入到自動載入陣列中。
 
 
@@ -118,23 +118,23 @@ CodeIgniter 預設有一個主要的設定文件，位於 application/config/con
 
 例如，要新建一個生產環境的設定文件，您可以：
 
-#. 新建目錄 application/config/production/
-#. 將已有的 config.php 文件拷貝到該目錄
+#. 新建資料夾 application/config/production/
+#. 將已有的 config.php 文件拷貝到該資料夾
 #. 編輯 application/config/production/config.php 文件，使用生產環境下設定
 
 當您將 ENVIRONMENT 常數設定為 'production' 時，您新建的生產環境下的 config.php 
 裡的設定將會載入。
 
-您可以放置以下設定文件到特定環境的目錄下：
+您可以放置以下設定文件到特定環境的資料夾下：
 
 -  預設的 CodeIgniter 設定文件
 -  您自己的設定文件
 
 .. note::
-	CodeIgniter 總是先載入全區設定文件（例如，application/config/ 目錄下的設定文件），
-	然後再去嘗試載入目前環境的設定文件。這意味著您沒必要將所有的設定文件都放到特定環境的設定目錄下，
+	CodeIgniter 總是先載入全區設定文件（例如，application/config/ 資料夾下的設定文件），
+	然後再去嘗試載入目前環境的設定文件。這意味著您沒必要將所有的設定文件都放到特定環境的設定資料夾下，
 	只需要放那些在每個環境下不一樣的設定文件就可以了。另外，您也不用拷貝所有的設定文件內容到
-	特定環境的設定文件中，只需要將那些在每個環境下不一樣的設定項拷進去就行了。定義在環境目錄下的設定項，
+	特定環境的設定文件中，只需要將那些在每個環境下不一樣的設定項拷進去就行了。定義在環境資料夾下的設定項，
 	會覆蓋掉全區的設定。
 
 
@@ -211,6 +211,6 @@ CodeIgniter 預設有一個主要的設定文件，位於 application/config/con
 		:returns:	URL pointing at your CI system/ directory
 		:rtype:	string
 
-		該成員函數傳回 CodeIgniter 的 system 目錄的 URL 。
+		該成員函數傳回 CodeIgniter 的 system 資料夾的 URL 。
 
-		.. note:: 該成員函數已經廢棄，因為這是一個不安全的編碼實踐。您的 *system/* 目錄不應該被公開存取。
+		.. note:: 該成員函數已經廢棄，因為這是一個不安全的編碼實踐。您的 *system/* 資料夾不應該被公開存取。

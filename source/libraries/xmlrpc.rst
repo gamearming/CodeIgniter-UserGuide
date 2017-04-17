@@ -271,7 +271,7 @@ XML-RPC 客戶端可以使用該成員函數發送用戶名和密碼到伺服器
 ----------
 
 使用文字編輯器建立一個控制器 Xmlrpc_client.php ，在這個控制器中，
-粘貼以下的程式碼並儲存到 applications/controllers/ 目錄::
+粘貼以下的程式碼並儲存到 applications/controllers/ 資料夾::
 
 	<?php
 
@@ -311,7 +311,7 @@ XML-RPC 客戶端可以使用該成員函數發送用戶名和密碼到伺服器
 ----------
 
 使用文字編輯器建立一個控制器 Xmlrpc_server.php ，在這個控制器中，
-粘貼以下的程式碼並儲存到 applications/controllers/ 目錄::
+粘貼以下的程式碼並儲存到 applications/controllers/ 資料夾::
 
 	<?php
 

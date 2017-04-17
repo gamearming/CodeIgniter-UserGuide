@@ -203,7 +203,7 @@ Memcached 快取
 =================
 
 可以在 memcached.php 設定文件中指定多個 Memcached 伺服器，設定文件位於 
-*application/config/* 目錄。
+*application/config/* 資料夾。
 
 上述所有成員函數都可以直接使用，而不用在載入驅動器時指定 adapter 參數，如下所示::
 

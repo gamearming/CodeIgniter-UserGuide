@@ -103,7 +103,7 @@ URI 中也支援使用正則表達式（不區分大小寫）::
 		:returns:	Sanitized file name/path
 		:rtype:	string
 
-		嘗試對文件名進行淨化，防止目錄遍歷嘗試以及其他的安全威脅，當文件名作為用戶輸入的參數時格外有用。
+		嘗試對文件名進行淨化，防止資料夾遍歷嘗試以及其他的安全威脅，當文件名作為用戶輸入的參數時格外有用。
 		::
 
 			$filename = $this->security->sanitize_filename($this->input->post('filename'));

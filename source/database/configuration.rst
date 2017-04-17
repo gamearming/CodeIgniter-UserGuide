@@ -1,5 +1,5 @@
 ######################
-資料庫設定
+資料庫組態設定
 ######################
 
 CodeIgniter 提供資料庫連線的組態設定檔，用來儲存用戶名稱、密碼、資料庫名稱等等，設定檔位於 application/config/database.php。
@@ -151,7 +151,7 @@ CodeIgniter 提供資料庫連線的組態設定檔，用來儲存用戶名稱�
 **pconnect**            TRUE/FALSE (boolean) - 是否使用持續連線。
 **db_debug**            TRUE/FALSE (boolean) - 是否顯示資料庫錯誤資訊。
 **cache_on**            TRUE/FALSE (boolean) - 是否開啟資料庫查詢快取，詳情請參閱 :doc:`資料庫快取類別 <caching>`。
-**cachedir**            資料庫查詢快取目錄所在伺服器的絕對路徑。
+**cachedir**            資料庫查詢快取資料夾所在伺服器的絕對路徑。
 **char_set**            與資料庫通信時所使用的字元集。
 **dbcollat**            與資料庫通信時所使用的字元規則。
 

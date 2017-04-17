@@ -432,16 +432,16 @@ Session 驅動
 可以說，文件驅動和 PHP 自帶的預設 session 實現非常類似，但是有一個很重要的細節要注意的是，
 實際上它們的程式碼並不相同，而且有一些局限性（以及優勢）。
 
-說的更具體點，它不支援 PHP 的 `session.save_path 參數的 目錄分級（directory level）和 mode 格式
+說的更具體點，它不支援 PHP 的 `session.save_path 參數的 資料夾分級（directory level）和 mode 格式
 <http://php.net/manual/en/session.configuration.php#ini.session.save-path>`_ ，
 另外為了安全性大多數的參數都被硬編碼。只提供了 ``$config['sess_save_path']`` 參數用於設定絕對路徑。
 
-另一個很重要的事情是，確儲存儲 session 文件的目錄不能被公開存取到或者是共享目錄，確保 **只有您**
-能存取並查看設定的 *sess_save_path* 目錄中的內容。否則，如果任何人都能存取，
+另一個很重要的事情是，確儲存儲 session 文件的資料夾不能被公開存取到或者是共享資料夾，確保 **只有您**
+能存取並查看設定的 *sess_save_path* 資料夾中的內容。否則，如果任何人都能存取，
 他們就可以從中竊取到目前的 session （這也被稱為 session 固定（session fixation）攻擊）
 
-在類 UNIX 操作系統中，這可以通過在該目錄上執行 `chmod` 命令，將權限設定為 0700 來實現，
-這樣就可以只允許目錄的所有者執行讀取和寫入操作。但是要注意的是，腳本的執行者通常不是您自己，
+在類 UNIX 操作系統中，這可以通過在該資料夾上執行 `chmod` 命令，將權限設定為 0700 來實現，
+這樣就可以只允許資料夾的所有者執行讀取和寫入操作。但是要注意的是，腳本的執行者通常不是您自己，
 而是類似於 'www-data' 這樣的用戶，所以只設定權限可能會破壞您的程序。
 
 依據您的環境，您應該像下面這樣來操作。
@@ -604,7 +604,7 @@ Memcached 驅動和 Redis 驅動非常相似，除了它的可用性可能要好
 
 言歸正傳，當您為 CodeIgniter 建立 session 驅動時，有三條規則您必須遵循：
 
-  - 將您的驅動文件放在 **application/libraries/Session/drivers/** 目錄下，並遵循 Session 類所使用的命名規範。
+  - 將您的驅動文件放在 **application/libraries/Session/drivers/** 資料夾下，並遵循 Session 類所使用的命名規範。
 
     例如，如果您想建立一個名為 'dummy' 的驅動，那麼您需要建立一個名為 ``Session_dummy_driver`` 的類，
     並將其放在 *application/libraries/Session/drivers/Session_dummy_driver.php* 文件中。

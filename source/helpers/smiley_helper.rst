@@ -37,14 +37,14 @@
 然後按下面的步驟建立一個控制器和檢視。
 
 .. important:: 開始之前，請先 `下載表情圖片 <https://ellislab.com/asset/ci_download_files/smileys.zip>`_
-	然後將其放置到伺服器的一個公共目錄，並打開 `application/config/smileys.php` 文件設定表情取代的規則。
+	然後將其放置到伺服器的一個公共資料夾，並打開 `application/config/smileys.php` 文件設定表情取代的規則。
 
 控制器
 --------------
 
-在 **application/controllers/** 目錄下，建立一個文件 Smileys.php 然後輸入下面的程式碼。
+在 **application/controllers/** 資料夾下，建立一個文件 Smileys.php 然後輸入下面的程式碼。
 
-.. important:: 修改下面的 :php:func:`get_clickable_smileys()` 函數的 URL 參數，讓其指向您的表情目錄。
+.. important:: 修改下面的 :php:func:`get_clickable_smileys()` 函數的 URL 參數，讓其指向您的表情資料夾。
 
 您會發現我們除了使用到了表情庫，還使用到了 :doc:`表格類 <../libraries/table>`::
 
@@ -66,7 +66,7 @@
 
 	}
 
-然後，在 **application/views/** 目錄下新建一個文件 **smiley_view.php** 並輸入以下程式碼::
+然後，在 **application/views/** 資料夾下新建一個文件 **smiley_view.php** 並輸入以下程式碼::
 
 	<html>
 		<head>
@@ -139,7 +139,7 @@
 	:rtype:	string
 
 	輸入一個文字字元串，並將其中的純文字表情取代為等效的表情圖片，第一個參數為您的字元串，
-	第二個參數是您的表情目錄對應的 URL 。
+	第二個參數是您的表情資料夾對應的 URL 。
 
 	舉例::
 

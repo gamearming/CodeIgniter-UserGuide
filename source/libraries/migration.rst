@@ -43,7 +43,7 @@
 建立一次遷移
 ******************
 
-這裡是一個新部落格站點的第一次遷移的範例，所有的遷移文件位於 **application/migrations/** 目錄，
+這裡是一個新部落格站點的第一次遷移的範例，所有的遷移文件位於 **application/migrations/** 資料夾，
 並命名為這種格式：*20121031100537_add_blog.php* 。
 ::
 
@@ -116,7 +116,7 @@
 參數                         預設值                可選項                    描述
 ========================== ====================== ========================== =============================================
 **migration_enabled**      FALSE                  TRUE / FALSE               啟用或停用遷移
-**migration_path**         APPPATH.'migrations/'  None                       遷移目錄所在位置
+**migration_path**         APPPATH.'migrations/'  None                       遷移資料夾所在位置
 **migration_version**      0                      None                       目前資料庫所使用版本
 **migration_table**        migrations             None                       用於儲存目前版本的資料庫表名
 **migration_auto_latest**  FALSE                  TRUE / FALSE               啟用或停用自動遷移
@@ -148,7 +148,7 @@
 		:returns:	An array of migration files
 		:rtype:	array
 
-		傳回 **migration_path** 目錄下的所有遷移文件的陣列。
+		傳回 **migration_path** 資料夾下的所有遷移文件的陣列。
 
 	.. php:method:: latest()
 

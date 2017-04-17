@@ -4,24 +4,24 @@
 
 語言類提供了一些成員函數用於讀取語言文件和不同語言的文字來實現國際化。
 
-在您的 CodeIgniter 的 **system** 目錄，有一個 **language** 子目錄，
+在您的 CodeIgniter 的 **system** 資料夾，有一個 **language** 子資料夾，
 它包含了一系列 **英文** 的語言文件。
-在 **system/language/english/** 這個目錄下的這些文件定義了 CodeIgniter 
+在 **system/language/english/** 這個資料夾下的這些文件定義了 CodeIgniter 
 框架的各個部分使用到的一些一般消息，錯誤消息，以及其他一些通用的單詞或短語。
 
 如果需要的話，您可以建立屬於您自己的語言文件，用於提供應用程式的錯誤消息和其他消息，
 或者將核心部分的消息翻譯為其他的語言。翻譯的消息或您另加的消息應該放在 
-**application/language/** 目錄下，每種不同的語言都有相應的一個子目錄（例如，
+**application/language/** 資料夾下，每種不同的語言都有相應的一個子資料夾（例如，
 'french' 或者 'german'）。
 
 CodeIgniter 框架自帶了一套 "英語" 語言文件，另外可以在 
 `CodeIgniter 3 翻譯倉庫 <https://github.com/bcit-ci/codeigniter3-translations>`_ 
-找到其他不同的語言，每個語言都有一個獨立的目錄。
+找到其他不同的語言，每個語言都有一個獨立的資料夾。
 
-當 CodeIgniter 載入語言文件時，它會先載入 **system/language/** 目錄下的，然後再載入
-您的 **application/language/** 目錄下的來覆蓋它。
+當 CodeIgniter 載入語言文件時，它會先載入 **system/language/** 資料夾下的，然後再載入
+您的 **application/language/** 資料夾下的來覆蓋它。
 
-.. note:: 每個語言都有它自己的目錄，例如，英語語言文件位於：system/language/english
+.. note:: 每個語言都有它自己的資料夾，例如，英語語言文件位於：system/language/english
 
 .. contents::
   :local:
@@ -34,12 +34,12 @@ CodeIgniter 框架自帶了一套 "英語" 語言文件，另外可以在
 處理多語言
 ***************************
 
-如果您想讓您的應用程式支援多語言，您就需要在 **application/language/** 目錄下提供不同語言的文件，
+如果您想讓您的應用程式支援多語言，您就需要在 **application/language/** 資料夾下提供不同語言的文件，
 然後在 **application/config/config.php** 設定文件中指定預設語言。
 
-**application/language/english/** 目錄可以包含您的應用程式需要的額外語言文件，例如錯誤消息。
+**application/language/english/** 資料夾可以包含您的應用程式需要的額外語言文件，例如錯誤消息。
 
-每個語言對應的目錄中都應該包含從 翻譯倉庫 中讀取到的核心文件，或者您自己翻譯它們，您也可以加入
+每個語言對應的資料夾中都應該包含從 翻譯倉庫 中讀取到的核心文件，或者您自己翻譯它們，您也可以加入
 您的程序需要的其他文件。
 
 您應該將您正在使用的語言儲存到一個會話變數中。

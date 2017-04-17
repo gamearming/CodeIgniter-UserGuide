@@ -40,7 +40,7 @@
 	:returns:	Sanitized file name
 	:rtype:	string
 
-	該函數提供了 目錄遍歷 攻擊的防護。
+	該函數提供了 資料夾遍歷 攻擊的防護。
 
 	它是 ``CI_Security::sanitize_filename()`` 函數的別名，更多資訊，請查閱 :doc:`安全類 <../libraries/security>` 文件。
 

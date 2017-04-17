@@ -39,10 +39,10 @@ CodeIgniter 的鉤子特性提供了一種成員函數來修改框架的內部�
 -  **class** 您希望呼叫的類名，如果您更喜歡使用過程式的函數的話，這一項可以留空。
 -  **function** 您希望呼叫的成員函數或函數的名稱。
 -  **filename** 包含您的類或函數的文件名。
--  **filepath** 包含您的腳本文件的目錄名。
+-  **filepath** 包含您的腳本文件的資料夾名。
    注意：
-   您的腳本必須放在 *application/* 目錄裡面，所以 filepath 是相對 *application/*
-   目錄的路徑，舉例來說，如果您的腳本位於 *application/hooks/* ，那麼 filepath
+   您的腳本必須放在 *application/* 資料夾裡面，所以 filepath 是相對 *application/*
+   資料夾的路徑，舉例來說，如果您的腳本位於 *application/hooks/* ，那麼 filepath
    可以簡單的設定為 'hooks' ，如果您的腳本位於 *application/hooks/utilities/* ，
    那麼 filepath 可以設定為 'hooks/utilities' ，路徑後面不用加斜線。
 -  **params** 您希望傳遞給您腳本的任何參數，可選。

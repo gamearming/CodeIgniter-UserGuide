@@ -14,9 +14,9 @@ CodeIgniter 預設不會自己載入輔助函數，所以使用輔助函數的�
 一旦載入了，它就可以在您的 :doc:`控制器 <../general/controllers>` 和
 :doc:`檢視 <../general/views>` 中全區存取了。
 
-一般情況下，輔助函數位於 **system/helpers** 或者 **application/helpers** 目錄
-目錄下。CodeIgniter 首先會查找 **application/helpers** 目錄，如果該目錄不存在，
-或者您載入的輔助函數沒有在該目錄下找到，CodeIgniter 就會去 *system/helpers/* 目錄查找。
+一般情況下，輔助函數位於 **system/helpers** 或者 **application/helpers** 資料夾
+資料夾下。CodeIgniter 首先會查找 **application/helpers** 資料夾，如果該資料夾不存在，
+或者您載入的輔助函數沒有在該資料夾下找到，CodeIgniter 就會去 *system/helpers/* 資料夾查找。
 
 載入輔助函數
 ================
@@ -68,7 +68,7 @@ controller/method 的 URI 。
 擴展輔助函數
 ===================
 
-為了擴展輔助函數，您需要在 **application/helpers/** 目錄下新建一個文件，
+為了擴展輔助函數，您需要在 **application/helpers/** 資料夾下新建一個文件，
 文件名和已存在的輔助函數文件名一樣，但是要加上 **MY\_** 前綴（這個可以設定，
 見下文）。
 
@@ -120,4 +120,4 @@ controller/method 的 URI 。
 然後？
 =========
 
-在目錄裡您可以找到所有的輔助函數清單，您可以瀏覽下它們看看它們都是做什麼的。
+在資料夾裡您可以找到所有的輔助函數清單，您可以瀏覽下它們看看它們都是做什麼的。

@@ -7,11 +7,11 @@ CodeIgniter 的"自動載入"特性可以允許系統每次執行時自動初始
 
 支援自動載入的有下面這些：
 
--  *libraries/* 目錄下的核心類
--  *helpers/* 目錄下的輔助函數
--  *config/* 目錄下的用戶自定義設定文件
--  *system/language/* 目錄下的語言文件
--  *models/* 目錄下的模型類
+-  *libraries/* 資料夾下的核心類
+-  *helpers/* 資料夾下的輔助函數
+-  *config/* 資料夾下的用戶自定義設定文件
+-  *system/language/* 資料夾下的語言文件
+-  *models/* 資料夾下的模型類
 
 要實現自動載入資源，您可以打開 **application/config/autoload.php** 文件，然後將
 您需要自動載入的項加入到 autoload 陣列中。您可以在該文件中的每種類型的 autoload 
